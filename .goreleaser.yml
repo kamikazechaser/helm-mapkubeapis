@@ -4,12 +4,9 @@ builds:
     env:
       - CGO_ENABLED=0
     goos:
-      - darwin
       - linux
-      - windows
     goarch:
       - amd64
-      - arm64
 archives:
   - id: archive
     format: tar.gz
@@ -20,4 +17,4 @@ archives:
       - scripts/install_plugin.sh
       - config/Map.yaml
 checksum:
-  name_template: 'checksums.txt'
+  name_template: "checksums.txt"

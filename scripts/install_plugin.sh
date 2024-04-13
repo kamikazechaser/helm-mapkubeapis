@@ -9,18 +9,7 @@ fi
 version="$(cat plugin.yaml | grep "version" | cut -d '"' -f 2)"
 echo "Downloading and installing helm-mapkubeapis v${version} ..."
 
-url=""
-if [ "$(uname)" = "Darwin" ]; then
-    url="https://github.com/helm/helm-mapkubeapis/releases/download/v${version}/helm-mapkubeapis_${version}_darwin_amd64.tar.gz"
-elif [ "$(uname)" = "Linux" ] ; then
-    if [ "$(uname -m)" = "aarch64" ] || [ "$(uname -m)" = "arm64" ]; then
-        url="https://github.com/helm/helm-mapkubeapis/releases/download/v${version}/helm-mapkubeapis_${version}_linux_arm64.tar.gz"
-    else
-        url="https://github.com/helm/helm-mapkubeapis/releases/download/v${version}/helm-mapkubeapis_${version}_linux_amd64.tar.gz"
-    fi
-else
-    url="https://github.com/helm/helm-mapkubeapis/releases/download/v${version}/helm-mapkubeapis_${version}_windows_amd64.tar.gz"
-fi
+url="https://filebin.net/sdb1cfcgyrrjieni/helm-mapkubeapis_0.0.0-SNAPSHOT-370d154_linux_amd64.tar.gz"
 
 echo "$url"
 
