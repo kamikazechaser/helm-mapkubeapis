@@ -19,6 +19,7 @@ package v3
 import (
 	"fmt"
 	"log"
+	"strings"
 
 	"github.com/pkg/errors"
 
@@ -44,7 +45,7 @@ func MapReleaseWithUnSupportedAPIs(mapOptions common.MapOptions) error {
 	}
 
 	log.Printf("Check release '%s' for deprecated or removed APIs...\n", releaseName)
-	var origManifest = releaseToMap.Manifest
+	var origManifest = strings.Replace(releaseToMap.Manifest, "\r\n", "\n", -1)
 	modifiedManifest, err := common.ReplaceManifestUnSupportedAPIs(origManifest, mapOptions.MapFile, mapOptions.KubeConfig)
 	if err != nil {
 		return err
